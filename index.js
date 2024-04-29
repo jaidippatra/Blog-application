@@ -11,7 +11,7 @@ const port = 3000;
 app.use(express.static("Public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
-
+app.set('view engine', 'ejs');
 function appendDataToFile(req, res) {
     const postCount = Object.keys(Quote.blogs).length;
 
