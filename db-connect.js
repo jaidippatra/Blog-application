@@ -1,7 +1,6 @@
 import fs from "fs";
+import pg from "pg";
 import dotenv from "dotenv";
-
-// Load environment variables from .env file
 dotenv.config();
 
 const config = {
@@ -17,5 +16,4 @@ const config = {
 };
 
 const client = new pg.Client(config);
-
 export default client;
