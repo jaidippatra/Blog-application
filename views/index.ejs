@@ -2,22 +2,21 @@
 
 <div class="container">
   <div class="row gy-3">
-    <% Object.keys(blogs).map(e=>{ %>
-    <div class="col-sm-6 mb-3 mb-sm-0">
+    <% post.forEach(quote => { %>
+      <div class="col-sm-6 mb-3 mb-sm-0">
       <div class="card mb-3 h-100">
-        <% let blog = blogs[e];%>
-        <div class="card-header"><%=blog.quoteHead %></div>
+        <div class="card-header"><%=quote.head %></div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-            <p><%= blog.quoteDescription %></p>
+            <p><%= quote.description %></p>
             <footer class="blockquote-footer">
-              <cite title="Source Title"><%=blog.author%></cite>
+              <cite title="Source Title"><%=quote.author%></cite>
             </footer>
           </blockquote>
         </div>
       </div>
     </div>
-    <% }) %>
+    <%});%>
   </div>
 </div>
 
