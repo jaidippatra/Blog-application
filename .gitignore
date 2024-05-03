@@ -1,3 +1,5 @@
+#keys
+ca.pem
 # Logs
 logs
 *.log
