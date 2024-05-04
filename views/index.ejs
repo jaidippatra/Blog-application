@@ -1,23 +1,29 @@
 <%- include("partials/header.html") %>
-
+<link rel="stylesheet" href="style/main.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<% const color=["red-card","blue-card","yellow-card"] %>
+<main>
 <div class="container">
-  <div class="row gy-3">
-    <% post.forEach(quote => { %>
-      <div class="col-sm-6 mb-3 mb-sm-0">
-      <div class="card mb-3 h-100">
-        <div class="card-header"><%=quote.head %></div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p><%= quote.description %></p>
-            <footer class="blockquote-footer">
-              <cite title="Source Title"><%=quote.author%></cite>
-            </footer>
-          </blockquote>
-        </div>
-      </div>
+  <% var rowColorIndex = 0; %>
+  <% post.forEach((quote, index) => { 
+    if (index % 2 === 0) { %>
+      <div class="row gy-3">
+    <% } %>
+    <% var random = rowColorIndex % color.length;
+       var styling = `quote-card ${color[random]} h-100`;
+       rowColorIndex = (rowColorIndex + 1) % color.length;
+    %>
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <blockquote class="<%=styling%>">
+        <p><%= quote.description %></p>
+        <cite><%=quote.author%></cite>
+      </blockquote>
     </div>
-    <%});%>
-  </div>
+    <% if (index % 2 !== 0 || index === post.length - 1) { %>
+      </div>
+      <div class="row-gap"></div>
+    <% } %>
+  <% }); %>
 </div>
-
+</main>
 <%- include("partials/footer.html") %>

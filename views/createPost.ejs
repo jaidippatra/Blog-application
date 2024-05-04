@@ -1,21 +1,25 @@
 <%- include("partials/header.html") %>
-
-<div class="container w-50">
-<form action="/submit" method="POST">
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="head" id="quoteHeading" placeholder="eg - Motivation">
-        <label for="quoteHeading" class="form-label">Quote heading</label>
+<link rel="stylesheet" href="style/main.css"/>
+<main>
+  <div class="container d-flex justify-content-center">
+    <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 400px;">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">Submit a Quote</h5>
+            <form action="/submit" method="POST">
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" placeholder="eg: Rabindranath Tagore">
+                </div>
+                <div class="mb-3">
+                    <label for="quoteDesc" class="form-label">Quote Description</label>
+                    <textarea class="form-control" id="quoteDesc" name="desc" placeholder="Leave the quote here" style="height: 100px" maxlength="150"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary d-block mx-auto">Post</button>
+            </form>
+        </div>
     </div>
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="author" id="author" placeholder="Author">
-        <label for="author" class="form-label">Author</label>
-      </div>
-      <div class="form-floating mb-3">
-        <textarea class="form-control" name="desc" id="quoteDesc" placeholder="Leave the quote here" style="height: 100px" maxlength="150"></textarea>
-        <label for="quoteDesc" class="form-label">Quote Description</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Post</button>
-</form>
 </div>
 
+
+</main>
 <%- include("partials/footer.html") %>

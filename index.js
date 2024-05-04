@@ -1,6 +1,6 @@
 import express from "express";
 import pg from "pg";
-import { dirname } from "path";
+import { dirname} from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import db from "./db-connect.js";
@@ -30,10 +30,9 @@ function fetchPosts() {
 }
 
 function addNewPost(req,res) {
-    let head = req.body.head;
     let description = req.body.desc;
     let author = req.body.author;
-    let updateQuery = `Insert into blog_info(head, description, author) values('${head}', '${description}', '${author}')`;
+    let updateQuery = `Insert into blog_info(description, author) values('${description}', '${author}')`;
     db.query(updateQuery,(err,res)=>{
         if(err){
             console.error("Error executing query",err.stack);
@@ -48,17 +47,17 @@ function addNewPost(req,res) {
 app.get("/", async (req, res) => {
     try {
         const posts = await fetchPosts();
-        res.render("index.ejs", { post: posts });
+        res.render('index', { post: posts });
     } catch (err) {
         res.status(500).send("Error fetching posts from database");
     }
 });
 
 app.get("/create",(req,res)=>{
-    res.render("createPost.ejs");
+    res.render('createPost');
 });
 app.get("/about",(req,res)=>{
-    res.render("about.ejs");
+    res.render('about');
 });
 app.post("/submit", (req, res) => {
     addNewPost(req, res);

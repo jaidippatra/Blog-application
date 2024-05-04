@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title>Blog Application</title>
+    <link rel="icon" type="image/x-icon" href="/images/title_icon.png">
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -16,27 +17,41 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <link rel="stylesheet" href="style/main.css" />
   </head>
-  <div class="container">
-    <header
-      class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
-    >
-      <a
-        href="/"
-        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-      >
-        <img
-          src="/images/title_icon.png"
-          alt="Blog icon"
-          style="height: 30px; padding-right: 7pt"
-        />
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/title_icon.png" alt="Logo" style ="height: 30px; padding-right: 7pt;" class="d-inline-block align-text-top">
+        Blog Application
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbarsExample09">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/create">Create Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About Me</a>
+          </li>
+      </div>
+    </div>
+  </nav>
+  <!-- <nav class="navbar navbar-dark bg-primary">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="/images/title_icon.png" alt="Blog icon" style="height: 30px; padding-right: 7pt"/>
         <span class="fs-4">Blog Application</span>
       </a>
-
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a href="/" class="nav-link" aria-current="page">Home</a>
+          <a href="/" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
           <a href="/create" class="nav-link">Create New Post</a>
@@ -46,7 +61,7 @@
         </li>
       </ul>
     </header>
-  </div>
+  </nav> -->
 
   <script>
     function getLastRoute() {
@@ -56,13 +71,12 @@
       return lastRoute;
     }
     const navlinks = document.querySelectorAll(".nav-link");
-    if(getLastRoute()==="" || getLastRoute()==="submit")
+    if(getLastRoute()==="" || getLastRoute()==="submit"){
       navlinks[0].classList.add("active");
+    }
     else if(getLastRoute()==="create"){
       navlinks[1].classList.add("active");
     }else{
       navlinks[2].classList.add("active");
     } 
   </script>
-  <main></main>
-</html>
